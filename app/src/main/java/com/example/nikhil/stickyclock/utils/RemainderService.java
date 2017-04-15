@@ -52,8 +52,6 @@ public class RemainderService extends Service {
 
         ArrayList<TimeZoneItem> countriesList = DataStore.getInstance(getApplicationContext()).getTimeZones();
 
-        Log.d("nikhil", countriesList.toString());
-
         for (int i = countriesList.size() - 1; i >= 0; i--) {
 
             TimeZoneItem item = countriesList.get(i);

@@ -73,7 +73,7 @@ public class Utils {
     }
 
     public static int getCountryFlag(String id) {
-        return map.get(id) != null ? map.get(id) : R.mipmap.ic_launcher;
+        return map.get(id) != null ? map.get(id) : R.mipmap.blankflag;
     }
 
     public static HashMap<String, Integer> loadMap() {

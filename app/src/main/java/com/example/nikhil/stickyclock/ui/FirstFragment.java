@@ -97,7 +97,6 @@ public class FirstFragment extends Fragment {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
 
-                DataStore.getInstance(getActivity()).storeIfSecondScreenDone(true);
                 if (s.length() == 0) {
                     timeZoneAdapter.setNewData(timezones);
                 } else if (s.length() > 0) {

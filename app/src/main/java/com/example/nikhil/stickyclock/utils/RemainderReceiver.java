@@ -11,9 +11,6 @@ public class RemainderReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         Intent service = new Intent(context, RemainderService.class);
-       // Log.d("nikhil",intent.getExtras().getString("test"));
-       // if(intent.getStringExtra(Constants.KEY)!=null)
-        //service.putExtra(Constants.KEY,intent.getStringExtra(Constants.KEY));
         context.startService(service);
     }
 }

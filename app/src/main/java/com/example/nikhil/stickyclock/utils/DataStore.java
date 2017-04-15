@@ -17,7 +17,6 @@ import java.util.ArrayList;
 public class DataStore {
 
     static Gson gson = new Gson();
-    static ArrayList<String> countries;
     static ArrayList<TimeZoneItem> timeZones;
     static ArrayList<TimeZoneItem> temp;
     private static DataStore instance;
@@ -31,28 +30,10 @@ public class DataStore {
         if (instance == null) {
             instance = new DataStore();
             sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context.getApplicationContext());
-            countries = new ArrayList<>();
             timeZones = new ArrayList<>();
             temp = new ArrayList<>();
         }
         return instance;
-    }
-
-    public void storeCountries(String country) {
-
-        countries = gson.fromJson(sharedPreferences.getString(Constants.SHARED_PREF_COUNTRIES, countries.toString())
-                , new TypeToken<ArrayList<String>>() {
-                }.getType());
-        countries.add(country);
-        sharedPreferences.edit().putString(Constants.SHARED_PREF_COUNTRIES, gson.toJson(countries)).apply();
-
-    }
-
-    public ArrayList<String> getCountries() {
-
-        return gson.fromJson(sharedPreferences.getString(Constants.SHARED_PREF_COUNTRIES, countries.toString())
-                , new TypeToken<ArrayList<String>>() {
-                }.getType());
     }
 
     public void storeTimeZoneItems(TimeZoneItem item) {
@@ -107,14 +88,6 @@ public class DataStore {
         temp.clear();
     }
 
-    public void storeIfTutorialDone(boolean bool) {
-        sharedPreferences.edit().putBoolean(Constants.SHARED_PREF_TUTORIAL_DONE, bool).apply();
-    }
-
-    public boolean isTutorialDone() {
-        return sharedPreferences.getBoolean(Constants.SHARED_PREF_TUTORIAL_DONE, false);
-    }
-
     public void storeIfIconNeeded(boolean bool) {
         sharedPreferences.edit().putBoolean(Constants.SHARED_PREF_ICON_NEEDED, bool).apply();
     }
@@ -123,20 +96,4 @@ public class DataStore {
         return sharedPreferences.getBoolean(Constants.SHARED_PREF_ICON_NEEDED, true);
     }
 
-
-    public boolean isFirstScreenDone() {
-        return sharedPreferences.getBoolean(Constants.SHARED_PREF_FIRST_SCREEN, false);
-    }
-
-    public void storeIfFirstScreenDone(boolean bool) {
-        sharedPreferences.edit().putBoolean(Constants.SHARED_PREF_FIRST_SCREEN, bool).apply();
-    }
-
-    public boolean isSecondScreenDone() {
-        return sharedPreferences.getBoolean(Constants.SHARED_PREF_FIRST_SCREEN, false);
-    }
-
-    public void storeIfSecondScreenDone(boolean bool) {
-        sharedPreferences.edit().putBoolean(Constants.SHARED_PREF_FIRST_SCREEN, bool).apply();
-    }
 }

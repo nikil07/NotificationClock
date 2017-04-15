@@ -30,6 +30,7 @@
             android:layout_above="@+id/plus"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="20dp"
+            android:visibility="gone"
             android:gravity="center"
             android:text="No Timezones Added"
             android:textColor="@android:color/holo_red_light"
