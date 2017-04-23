@@ -1,22 +1,19 @@
-package com.example.nikhil.stickyclock.utils;
+package com.androidworks.nikhil.stickyclock.utils;
 
 import android.content.Context;
 import android.support.design.widget.Snackbar;
-import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
-import com.example.nikhil.stickyclock.R;
-import com.example.nikhil.stickyclock.model.TimeZoneItem;
+import com.androidworks.nikhil.stickyclock.R;
+import com.androidworks.nikhil.stickyclock.model.TimeZoneItem;
 
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.TimeZone;
-import java.util.concurrent.TimeUnit;
 
-/**
+ /**
  * Created by Nikhil on 26-Sep-16.
  */
 public class Utils {
@@ -36,17 +33,19 @@ public class Utils {
         ArrayList<TimeZoneItem> list = new ArrayList<>();
         TimeZoneItem item = new TimeZoneItem("Indian Standard Time", "India", "(UTC+5:30)", "Asia/Kolkata", "IND", null, false);
         list.add(item);
-        TimeZoneItem item2 = new TimeZoneItem("British Standard Time", "United Kingdom", "(UTC+1:00)", "Europe/Paris", "UK", null, false);
+        TimeZoneItem item2 = new TimeZoneItem("British Standard Time", "United Kingdom", "(UTC+1:00)", "Europe/London", "UK", null, false);
         list.add(item2);
-        TimeZoneItem item3 = new TimeZoneItem("Irish Standard Time", "Ireland", "(UTC+1:00)", "Europe/Paris", "IRE", null, false);
+        TimeZoneItem item3 = new TimeZoneItem("Irish Standard Time", "Ireland", "(UTC+1:00)", "Europe/Dublin", "IRE", null, false);
         list.add(item3);
-        TimeZoneItem item4 = new TimeZoneItem("Central European Time", "Europe", "(UTC+1:00)", "Europe/Paris", "UK", null, false);
+        TimeZoneItem item4 = new TimeZoneItem("Central European Time", "Europe", "(UTC+1:00)", "CET", "UK", null, false);
         list.add(item4);
-        TimeZoneItem item5 = new TimeZoneItem("Moskow Standard Time", "Moskow", "(UTC+3:00)", "Europe/Volgograd", "RUS", null, false);
+        TimeZoneItem item5 = new TimeZoneItem("Moscow Standard Time", "Moscow", "(UTC+3:00)", "Europe/Volgograd", "RUS", null, false);
         list.add(item5);
         TimeZoneItem item6 = new TimeZoneItem("Eastern Standard Time", "America", "(UTC-5:00)", "US/Eastern", "USA", null, false);
         list.add(item6);
-        TimeZoneItem item8 = new TimeZoneItem("Pacific Standard Time", "Pacific", "(UTC-8:00)", " Canada/Pacific", "USA", null, false);
+        TimeZoneItem item7 = new TimeZoneItem("Central Standard Time", "America", "(UTC-6:00)", "US/Central", "USA", null, false);
+        list.add(item7);
+        TimeZoneItem item8 = new TimeZoneItem("Pacific Standard Time", "Pacific", "(UTC-8:00)", "America/Los_Angeles", "USA", null, false);
         list.add(item8);
         TimeZoneItem item10 = new TimeZoneItem("Australian Eastern Standard", "Australia", "(UTC+10:00)", "Australia/Brisbane", "AUS", null, false);
         list.add(item10);

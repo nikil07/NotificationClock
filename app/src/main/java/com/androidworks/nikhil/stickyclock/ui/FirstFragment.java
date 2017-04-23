@@ -1,31 +1,29 @@
-package com.example.nikhil.stickyclock.ui;
+package com.androidworks.nikhil.stickyclock.ui;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.design.widget.TextInputEditText;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
 
-import com.example.nikhil.stickyclock.R;
-import com.example.nikhil.stickyclock.adapter.TimeZoneAdapter;
-import com.example.nikhil.stickyclock.model.TimeZoneItem;
-import com.example.nikhil.stickyclock.utils.DataBaseHelper;
-import com.example.nikhil.stickyclock.utils.DataStore;
-import com.example.nikhil.stickyclock.utils.RemainderService;
-import com.example.nikhil.stickyclock.utils.Utils;
+import com.androidworks.nikhil.stickyclock.adapter.TimeZoneAdapter;
+import com.androidworks.nikhil.stickyclock.utils.DataStore;
+import com.androidworks.nikhil.stickyclock.utils.RemainderService;
+import com.androidworks.nikhil.stickyclock.utils.Utils;
+import com.androidworks.nikhil.stickyclock.R;
+import com.androidworks.nikhil.stickyclock.model.TimeZoneItem;
+import com.androidworks.nikhil.stickyclock.utils.DataBaseHelper;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -35,6 +33,7 @@ import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
 /**
  * Created by Nikhil on 01-Nov-16.
  */
@@ -64,20 +63,36 @@ public class FirstFragment extends Fragment {
         File database = getActivity().getDatabasePath(DataBaseHelper.DATABASE_NAME);
         if (!database.exists()) {
             dataBaseHelper.getReadableDatabase();
-            if (copyDataBase(getActivity()))
-                Log.d("nikhil", "DB copied");
-                // Toast.makeText(getActivity(), "DB copied", Toast.LENGTH_SHORT).show();
-            else
-                Log.d("nikhil", "DB error copying");
-            //  Toast.makeText(getActivity(), "DB error copying", Toast.LENGTH_SHORT).show();
+            copyDataBase(getActivity());
         }
 
+        if (!checkVersion()) {
+            dataBaseHelper.getReadableDatabase();
+            copyDataBase(getActivity());
+        }
         timezones = dataBaseHelper.getTimes();
         AddTimeZonesTask task = new AddTimeZonesTask();
         task.execute();
         setupViews();
 
         return view;
+    }
+
+    private boolean checkVersion() {
+        PackageInfo pInfo;
+        try {
+            pInfo = getActivity().getPackageManager().getPackageInfo(getActivity().getPackageName(), 0);
+            int verCode = pInfo.versionCode;
+            if (DataStore.getInstance(getActivity()).getVersion() == verCode)
+                return true;
+            else {
+                DataStore.getInstance(getActivity()).storeVersion(verCode);
+                return false;
+            }
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 
     public void setupViews() {

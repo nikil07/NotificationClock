@@ -1,4 +1,4 @@
-package com.example.nikhil.stickyclock.utils;
+package com.androidworks.nikhil.stickyclock.utils;
 
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -11,18 +11,15 @@ import android.os.IBinder;
 import android.support.annotation.Nullable;
 import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
-import android.util.Log;
 
-import com.example.nikhil.stickyclock.R;
-import com.example.nikhil.stickyclock.model.TimeZoneItem;
-import com.example.nikhil.stickyclock.ui.WelcomeActivity;
+import com.androidworks.nikhil.stickyclock.model.TimeZoneItem;
+import com.androidworks.nikhil.stickyclock.ui.WelcomeActivity;
 
 import org.apache.commons.lang3.StringUtils;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Random;
 import java.util.TimeZone;
 
 /**
@@ -56,7 +53,7 @@ public class RemainderService extends Service {
 
             TimeZoneItem item = countriesList.get(i);
             TimeZone tz = TimeZone.getTimeZone(item.getTimezoneID());
-            SimpleDateFormat sdf = new SimpleDateFormat("hh:mm a");
+            SimpleDateFormat sdf = new SimpleDateFormat("EEE, d MMM yyyy HH:mm");
             sdf.setTimeZone(tz);
             String currentDateTimeString = sdf.format(c.getTime());
             Intent mainActivityIntent = new Intent(getApplicationContext(), WelcomeActivity.class);

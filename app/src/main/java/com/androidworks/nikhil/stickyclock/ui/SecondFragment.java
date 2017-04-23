@@ -1,26 +1,22 @@
-package com.example.nikhil.stickyclock.ui;
+package com.androidworks.nikhil.stickyclock.ui;
 
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.RecyclerView;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.AutoCompleteTextView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 
-import com.example.nikhil.stickyclock.R;
-import com.example.nikhil.stickyclock.adapter.TimeZoneAdapter;
-import com.example.nikhil.stickyclock.model.TimeZoneItem;
-import com.example.nikhil.stickyclock.utils.DataStore;
-import com.example.nikhil.stickyclock.utils.RemainderService;
-import com.example.nikhil.stickyclock.utils.Utils;
+import com.androidworks.nikhil.stickyclock.adapter.TimeZoneAdapter;
+import com.androidworks.nikhil.stickyclock.utils.DataStore;
+import com.androidworks.nikhil.stickyclock.utils.RemainderService;
+import com.androidworks.nikhil.stickyclock.utils.Utils;
+import com.androidworks.nikhil.stickyclock.R;
+import com.androidworks.nikhil.stickyclock.model.TimeZoneItem;
 
 import java.util.ArrayList;
 

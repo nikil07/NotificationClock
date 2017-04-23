@@ -1,28 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.nikhil.stickyclock">
+    package="com.androidworks.nikhil.stickyclock">
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <application
-        android:name=".utils.Application"
+        android:name="com.androidworks.nikhil.stickyclock.utils.Application"
         android:allowBackup="true"
-        android:icon="@mipmap/time__data_management"
+        android:icon="@mipmap/icon"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <receiver android:name="com.example.nikhil.stickyclock.utils.RemainderReceiver">
+        <receiver android:name="com.androidworks.nikhil.stickyclock.utils.RemainderReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
 
-        <service android:name=".utils.RemainderService" />
+        <receiver android:name="com.androidworks.nikhil.stickyclock.utils.UpdateReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_REPLACED"/>
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver>
+
+        <service android:name="com.androidworks.nikhil.stickyclock.utils.RemainderService" />
 
         <activity
-            android:name=".ui.WelcomeActivity"
+            android:name="com.androidworks.nikhil.stickyclock.ui.WelcomeActivity"
             android:label="@string/title_activity_welcome"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -32,7 +39,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.TabActivity"
+            android:name="com.androidworks.nikhil.stickyclock.ui.TabActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="stateHidden" />
     </application>

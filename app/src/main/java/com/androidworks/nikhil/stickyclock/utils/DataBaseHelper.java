@@ -1,4 +1,4 @@
-package com.example.nikhil.stickyclock.utils;
+package com.androidworks.nikhil.stickyclock.utils;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -8,7 +8,7 @@ import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-import com.example.nikhil.stickyclock.model.TimeZoneItem;
+import com.androidworks.nikhil.stickyclock.model.TimeZoneItem;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -16,13 +16,12 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
-import java.util.Collections;
 
 /**
  * Created by nikhilkumar_s on 3/15/2017.
  */
 public class DataBaseHelper extends SQLiteOpenHelper {
-    public final static String DATABASE_PATH = "/data/data/com.example.nikhil.stickyclock/databases/";
+    public final static String DATABASE_PATH = "/data/data/com.androidworks.nikhil.stickyclock/databases/";
     public static final int DATABASE_VERSION = 1;
     public static final String DATABASE_NAME = "timezones.db";
     private final Context myContext;
@@ -137,7 +136,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
             timeZone.setTimezone(cursor.getString(4));
             timeZone.setTimezoneID(cursor.getString(5));
             timeZone.setCountryID(cursor.getString(1));
-            Log.d("nikhil", "Country ID: " + cursor.getString(1));
+            //Log.d("nikhil", "Country ID: " + cursor.getString(1));
             cursor.moveToNext();
             list.add(timeZone);
 

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/background_op50"
     android:fitsSystemWindows="true"
-    tools:context=".ui.WelcomeActivity">
+    tools:context="com.androidworks.nikhil.stickyclock.ui.WelcomeActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"

@@ -1,4 +1,4 @@
-package com.example.nikhil.stickyclock.utils;
+package com.androidworks.nikhil.stickyclock.utils;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;

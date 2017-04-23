@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".ui.WelcomeActivity"
+    tools:context="com.androidworks.nikhil.stickyclock.ui.WelcomeActivity"
     tools:showIn="@layout/activity_welcome">
 
     <ListView
@@ -44,7 +44,7 @@
             android:layout_gravity="center_horizontal"
             android:text="Tap Anywhere to Add"
             android:textColor="@android:color/holo_red_light"
-            android:textSize="35sp" />
+            android:textSize="30sp" />
 
     </RelativeLayout>
 </RelativeLayout>

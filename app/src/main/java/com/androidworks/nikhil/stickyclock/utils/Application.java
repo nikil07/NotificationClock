@@ -1,4 +1,4 @@
-package com.example.nikhil.stickyclock.utils;
+package com.androidworks.nikhil.stickyclock.utils;
 
 /**
  * Created by Nikhil on 06-Oct-16.

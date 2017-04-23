@@ -1,4 +1,4 @@
-package com.example.nikhil.stickyclock.ui;
+package com.androidworks.nikhil.stickyclock.ui;
 
 import android.app.AlarmManager;
 import android.app.NotificationManager;
@@ -23,16 +23,15 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 
-import com.example.nikhil.stickyclock.R;
-import com.example.nikhil.stickyclock.adapter.WelcomeTimeZoneAdapter;
-import com.example.nikhil.stickyclock.model.TimeZoneItem;
-import com.example.nikhil.stickyclock.utils.DataStore;
-import com.example.nikhil.stickyclock.utils.RemainderReceiver;
-import com.example.nikhil.stickyclock.utils.RemainderService;
-import com.example.nikhil.stickyclock.utils.Utils;
+import com.androidworks.nikhil.stickyclock.adapter.WelcomeTimeZoneAdapter;
+import com.androidworks.nikhil.stickyclock.utils.DataStore;
+import com.androidworks.nikhil.stickyclock.utils.RemainderReceiver;
+import com.androidworks.nikhil.stickyclock.utils.RemainderService;
+import com.androidworks.nikhil.stickyclock.utils.Utils;
+import com.androidworks.nikhil.stickyclock.R;
+import com.androidworks.nikhil.stickyclock.model.TimeZoneItem;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

@@ -1,11 +1,11 @@
-package com.example.nikhil.stickyclock.utils;
+package com.androidworks.nikhil.stickyclock.utils;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.util.Log;
 
-import com.example.nikhil.stickyclock.model.TimeZoneItem;
+import com.androidworks.nikhil.stickyclock.model.TimeZoneItem;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -96,4 +96,11 @@ public class DataStore {
         return sharedPreferences.getBoolean(Constants.SHARED_PREF_ICON_NEEDED, true);
     }
 
+    public void storeVersion(int verCode) {
+        sharedPreferences.edit().putInt(Constants.SHARED_PREF_VERSION_NUMBER, verCode).apply();
+    }
+
+    public int getVersion() {
+        return sharedPreferences.getInt(Constants.SHARED_PREF_VERSION_NUMBER, 1);
+    }
 }
